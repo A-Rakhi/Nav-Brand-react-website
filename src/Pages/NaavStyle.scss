@@ -33,6 +33,8 @@ $blueColor: blue ;
     color: $blueColor!important;
 }
 
+//media query
+
 @media(max-width:576px){
     .nav-text:hover {
         border-bottom-style: none;
