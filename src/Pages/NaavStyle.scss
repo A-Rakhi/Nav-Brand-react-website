@@ -10,6 +10,18 @@ $blueColor: blue ;
     font-size: 18px;
     margin: 0 20px 12px 12px;
     text-decoration: none!important;
+
+    
+ & :hover{
+    cursor: pointer;
+    border-bottom: 1px solid salmon;
+    color: $blueColor!important;
+}
+
+ & .active_class{
+    border-bottom: 1px solid salmon;
+    color: $blueColor!important;
+    }
 }
 .naav{
     border-bottom: 1px solid aliceblue;
@@ -23,15 +35,6 @@ $blueColor: blue ;
     color: rgb(185, 5, 80)!important;
 }
 
-.nav-text:hover{
-    cursor: pointer;
-    border-bottom: 1px solid salmon;
-    color: $blueColor!important;
-}
-.active_class{
-    border-bottom: 1px solid salmon;
-    color: $blueColor!important;
-}
 
 //media query
 
