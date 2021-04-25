@@ -3,29 +3,24 @@ import { Form, Col } from "react-bootstrap";
 
 const Contact = () => {
  
-    const [data,setData]=useState({
-        fname: " ",
-        lname: " ",
-        email: " ",
-        password: " ",
-        textarea: " " ,
-    });
+  const [fname, setFname] = useState(" ")
+  const [lname, setLname] = useState(" ")
+  const [email, setEmail] = useState(" ")
+  const [password, setPass] = useState(" ")
+  const [textarea, setTextarea] = useState(" ")
+
+  
+  function isEmail(val) {
+    let regEmail = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    if(!regEmail.test(val)){
+        return 'Invalid Email';
+    }
+}
     
-    const InputEvent = (event) =>{
-           const {name,value} = event.target;
-
-           setData ((preVal) => {
-               return{
-                  ...preVal,
-                  [name] : value,
-               };
-           });
-    };
-
-    const formSubmit = (e) =>{
-        e.preventDefault();
-        alert(`I am ${data.fname} ${data.lname}, Email is ${data.email}, password is ${data.password} 
-            and message is ${data.textarea}` );
+    const formSubmit = () =>{
+        isEmail(email);
+        alert(`I am ${fname} ${lname}, Email is ${email}, password is ${password} 
+            and message is ${textarea}` );
     };
 
 
@@ -47,9 +42,9 @@ const Contact = () => {
                   <Form.Label>First Name</Form.Label>
 
                   <Form.Control 
-                  name="fname"
-                  value={data.fname }
-                  onChange={InputEvent}
+                  type="text"
+                  value={fname }
+                  onChange={event => (setFname(event.target.value))}
                   placeholder="First name" />
                 </Col>
 
@@ -57,9 +52,9 @@ const Contact = () => {
                   <Form.Label>Last Name</Form.Label>
 
                   <Form.Control 
-                  name="lname"
-                  value={data.lname }
-                  onChange={InputEvent}
+                  type="text"
+                  value={lname }
+                  onChange={event => (setLname(event.target.value))}
                   placeholder="Last name" />
                 </Col>
               </Form.Row>
@@ -67,11 +62,10 @@ const Contact = () => {
 
               <Form.Group controlId="formBasicEmail">
                 <Form.Label>Email address</Form.Label>
-                <Form.Control type="email" 
-                name="email"
-                value={data.email }
-                onChange={InputEvent}
-                
+                <Form.Control 
+                type="email" 
+                value={email }
+                onChange={event => (setEmail(event.target.value))}
                 placeholder="Enter email" />
                 {/*  <Form.Text className="text-muted">
                   We'll never share your email with anyone else.
@@ -80,11 +74,10 @@ const Contact = () => {
 
               <Form.Group controlId="formBasicPassword">
                 <Form.Label>Password</Form.Label>
-                <Form.Control type="password" 
-                name="password"
-                value={data.password }
-                onChange={InputEvent}
-                
+                <Form.Control
+                type="password" 
+                value={password }
+                onChange={event => (setPass(event.target.value))}
                 placeholder="Password" />
               </Form.Group>
 
@@ -92,8 +85,8 @@ const Contact = () => {
                 <Form.Label>Example textarea</Form.Label>
                 <Form.Control as="textarea" rows={3} 
                 name="textarea"
-                value={data.textarea }
-                onChange={InputEvent}
+                value={textarea }
+                onChange={event => (setTextarea(event.target.value))}
                 /> </Form.Group>
 
               <button type="submit" className="btn btn-outline-success text-dark contact-btn">

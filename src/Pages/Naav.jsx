@@ -1,6 +1,6 @@
 import React from "react";
 import { Navbar, Nav, Container} from "react-bootstrap";
-import './NaavStyle.css'
+import './NaavStyle.scss'
 import { Link } from "react-router-dom";
 
 
@@ -17,7 +17,8 @@ const Naav = () => {
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="ml-auto mr-5">
-              <Link className="nav-text" exact to="/" activeClassName="active_class">
+
+              <Link className="nav-text" exact to="/home" activeClassName="active_class">
                 Home
               </Link>
               <Link className="nav-text" exact to="/about">

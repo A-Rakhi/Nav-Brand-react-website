@@ -5,6 +5,7 @@ import About from './Pages/About';
 import Service from './Pages/Service';
 import Contact from './Pages/Contact';
 import Naav from './Pages/Naav';
+import NotFound from './Pages/NotFound'
 //import Footer from './Pages/Footer';
 
 
@@ -16,10 +17,11 @@ function App() {
               
       <Switch>
       <Route exact path="/" component ={Home} /> 
-      <Route exact path="/about" component ={About} />
-      <Route exact path="/service" component ={Service} />
-      <Route exact path="/contact" component ={Contact} />
-      <Redirect to ="/" /> 
+      <Route path="/home" component ={Home} /> 
+      <Route path="/about" component ={About} />
+      <Route path="/service" component ={Service} />
+      <Route path="/contact" component ={Contact} />
+      <Route path="/*" component ={NotFound} />
 
       </Switch> 
 
